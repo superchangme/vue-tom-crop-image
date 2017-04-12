@@ -2,31 +2,31 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
 
-    <tom-crop 
-    :data-show='showCrop' 
+    <tom-crop
+    :data-show='showCrop'
     :data-width='400'
     :data-height='200'
-    @on-success='getCropSuccess' 
+    @on-success='getCropSuccess'
     @on-hide='showCrop=false'
-    ></tom-crop> 
+    ></tom-crop>
 
-    <tom-crop 
-    :data-img-src='userImgSrc'
-    :data-show='showCrop2' 
-    :data-width='400'
-    :data-height='200'
-    :data-from-url='true'
-    @on-success='getCropSuccess2' 
-    @on-hide='showCrop2=false'
-    ></tom-crop> 
+        <tom-crop
+        :data-img-src='userImgSrc'
+        :data-show='showCrop2'
+        :data-width='400'
+        :data-height='200'
+        :data-from-url='true'
+        @on-success='getCropSuccess2'
+        @on-hide='showCrop2=false'
+        ></tom-crop> 
 
-     <button id='fileChooseButton' @click='showCrop=true' class="button blue rarrow file-input-mask">上传图片</button> 
+     <button id='fileChooseButton' @click='showCrop=true' class="button blue rarrow file-input-mask">上传图片</button>
 
      <h2 v-if='imgSrc'>上传预览</h2>
      <img :src='imgSrc' />
 
 
-     <button id='fileChooseButton' @click='setUserImg' class="button blue rarrow file-input-mask">裁剪图片</button> 
+     <button id='fileChooseButton' @click='setUserImg' class="button blue rarrow file-input-mask">裁剪图片</button>
       <h2 v-if='imgSrc2'>上传预览2</h2>
      <img :src='imgSrc2' />
   </div>
@@ -99,6 +99,7 @@ button,img{
   margin: 0 auto!important;
   display: block;
   margin-top:40px!important;
+  border: 1px solid;
 }
 
 ul {

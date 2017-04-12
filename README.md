@@ -1,4 +1,4 @@
-# img_upload
+# tom-crop-image
 
 > A Vue.js project
 
@@ -19,3 +19,18 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+![image](http://wx1.sinaimg.cn/large/681e3d67ly1fejw2t97mfj211d0hu7b6.jpg)
+
+#tom-crop-image use hammerjs
+##on pc user  should press both shift key and left mouse to rotate
+
+``` javascript
+<tom-crop
+:data-show='showCrop'
+:data-width='400'
+:data-height='200'
+@on-success='getCropSuccess'
+@on-hide='showCrop=false'
+></tom-crop>
+```

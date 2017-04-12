@@ -1,10 +1,10 @@
 <template>
   <div >
   <input class="upload-file" ref='inputFile' v-show='false' type="file" id="file" accept="image/*" capture="camera"/>
-  
+
     <img id="previewResult" v-show='false'/>
     <img id="needCropImg" v-show='false' :src='dataImgSrc' />
-    <div class="tom-app" id="uploadPage">
+    <div class="tom-app" ref="uploadPage">
         <div class="upload-loading">
             <span class="centerXY"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></span>
         </div>
@@ -67,6 +67,7 @@ export default {
             }else{
                  this.$refs.inputFile.click();
             }
+            return;
             this.resetUserOpts();
             document.addEventListener("touchmove",this.stopScroll,false)
         }else{
@@ -82,7 +83,7 @@ export default {
 
     },
     showCropModal:function(){
-        
+
     }
   },
   destroyed(){
@@ -97,7 +98,7 @@ export default {
        }
     })(_$);
     let jQuery=_$;
-    
+
      //初始化图片大小300*300
         var opts={cropWidth:this.dataWidth,cropHeight:this.dataHeight},
             $file=$("#file"),
@@ -108,7 +109,7 @@ export default {
             $rotateBtn=$("#rotateBtn"),
             $getFile=$("#getFile"),
             $preview=$("#preview"),
-            $uploadPage=$("#uploadPage"),
+            $uploadPage=jQuery(this.$refs.uploadPage),
             $mask=$(".upload-mask"),
             $loading=$(".upload-loading"),
             maskCtx=$mask[0].getContext("2d"),
@@ -141,9 +142,11 @@ export default {
         });
         function resetUserOpts(){
             $(".photo-canvas").hammer('reset');
-            previewStyle={scale:1,x:0,y:0,rotate:0};
+            previewStyle={scale:1,x:0,y:0,rotate:0,ratio:previewStyle.ratio};
             $previewResult.attr("src",'').hide();
-            $preview.attr("src",'')
+            if(!self.dataFromUrl){
+                $preview.attr("src",'')
+            }
         }
         this.resetUserOpts=resetUserOpts;
         this.uploadPage=$uploadPage;
@@ -199,13 +202,11 @@ export default {
                 }
             })*/
             //you can upload new img file :cheers:)
-            
+
 
         })
         //上传文件按钮&&关闭弹窗按钮
-        jQuery(document).delegate("#file","click",function(){
-            $uploadPage.show();
-        }).delegate("#closeCrop","click",function(){
+        $('#closeCrop').on("click",function(){
             $uploadPage.hide();
             self.$emit('on-hide')
             resetUserOpts();
