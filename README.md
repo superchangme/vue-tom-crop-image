@@ -22,8 +22,15 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ![image](http://wx1.sinaimg.cn/large/681e3d67ly1fejw2t97mfj211d0hu7b6.jpg)
 
-# tom-crop-image use hammerjs
+# tom-crop-image use hammerjs and font-awesome
 ## on desktop,user  should press both shift key and left mouse to rotate
+
+
+# how to use tom-crop-image
+
+## 1.copy libs/
+
+##  2.write code as below
 
 ``` javascript
 <tom-crop
