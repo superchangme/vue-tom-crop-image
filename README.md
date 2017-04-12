@@ -22,8 +22,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 ![image](http://wx1.sinaimg.cn/large/681e3d67ly1fejw2t97mfj211d0hu7b6.jpg)
 
-#tom-crop-image use hammerjs
-##on pc user  should press both shift key and left mouse to rotate
+# tom-crop-image use hammerjs
+## on desktop,user  should press both shift key and left mouse to rotate
 
 ``` javascript
 <tom-crop
